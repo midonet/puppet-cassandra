@@ -1,4 +1,4 @@
-# == Class: midonet::cassandra
+# == Class: ::cassandra
 #
 # Install and run the cassandra component
 #
@@ -23,7 +23,7 @@
 #
 # * The easiest way to run the class is:
 #
-#       include midonet::cassandra
+#       include ::cassandra
 #
 #   And a cassandra single-machine cluster will be installed, binding the
 #   'localhost' address.
@@ -31,7 +31,7 @@
 # * Run a single-machine cluster but binding a hostname or another address
 #   would be:
 #
-#        class {'midonet::cassandra':
+#        class {'::cassandra':
 #            seeds              => ['192.168.2.2'],
 #            seed_address       => '192.168.2.2',
 #            storage_port       => 7000,
@@ -46,7 +46,7 @@
 #   seed_address of each node:
 #
 # - On node1
-#        class {'midonet::cassandra':
+#        class {'::cassandra':
 #            seeds              => ['node_1', 'node_2', 'node_3'],
 #            seed_address       => 'node_1'
 #            storage_port       => 7000,
@@ -55,7 +55,7 @@
 #            client_port_thrift => 9042,
 #        }
 # - On node2
-#        class {'midonet::cassandra':
+#        class {'::cassandra':
 #            seeds              => ['node_1', 'node_2', 'node_3'],
 #            seed_address       => 'node_2'
 #            storage_port       => 7000,
@@ -64,7 +64,7 @@
 #            client_port_thrift => 9042,
 #        }
 # - On node3
-#        class {'midonet::cassandra':
+#        class {'::cassandra':
 #            seeds              => ['node_1', 'node_2', 'node_3'],
 #            seed_address       => 'node_3'
 #            storage_port       => 7000,
@@ -76,11 +76,11 @@
 # NOTE: node_X can be either hostnames or ip addresses
 # You can alternatively use the Hiera.yaml style:
 #
-#     midonet::cassandra::seeds:
+#     ::cassandra::seeds:
 #         - node_1
 #         - node_2
 #         - node_3
-#     midonet::cassandra::seed_address: 'node_1'
+#     ::cassandra::seed_address: 'node_1'
 #
 # === Authors
 #

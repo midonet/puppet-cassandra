@@ -1,12 +1,12 @@
-# midonet
+# cassandra
 
 #### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description](#module-description)
 3. [Setup](#setup)
-    * [What midonet affects](#what-midonet-affects)
-    * [Beginning with midonet](#beginning-with-midonet)
+    * [What cassandra affects](#what-cassandra-affects)
+    * [Beginning with cassandra](#beginning-with-cassandra)
 4. [Usage](#usage)
 5. [Reference](#reference)
     * [Cassandra Class Reference](#cassandra)
@@ -16,8 +16,7 @@
 ## Overview
 
 Puppet module for install Apache Cassandra. It may be deprecated in favour of
-one of the Puppet's Cassandra tagged modules:
-https://forge.puppetlabs.com/modules?utf-8=%E2%9C%93&sort=rank&q=cassandra
+one of the [Puppet's Cassandra tagged modules](https://forge.puppetlabs.com/modules?utf-8=%E2%9C%93&sort=rank&q=cassandra)
 
 ## Module Description
 
@@ -31,7 +30,7 @@ architecture](http://docs.midonet.org/docs/latest/reference-architecture/content
 
 ## Setup
 
-### What midonet affects
+### What cassandra affects
 
 * This module affects the respository sources of the target system as well as
   new packages and their configuration files.
@@ -55,7 +54,7 @@ installs cassandra the way that MidoNet needs it.
 
 The easiest way to run the class is:
 
-    include midonet::cassandra
+    include ::cassandra
 
 And a cassandra single-machine cluster will be installed, binding the
 'localhost' address.
@@ -63,7 +62,7 @@ And a cassandra single-machine cluster will be installed, binding the
 Run a single-machine cluster but binding a hostname or another address
 would be:
 
-    class {'midonet::cassandra':
+    class {'::cassandra':
         seeds        => ['192.168.2.2'],
         seed_address => '192.168.2.2'
     }
@@ -73,21 +72,21 @@ seed_address of each node:
 
 ... On node1:
 
-    class {'midonet::cassandra':
+    class {'::cassandra':
         seeds        => ['node_1', 'node_2', 'node_3'],
         seed_address => 'node_1'
     }
 
 ... On node2:
 
-    class {'midonet::cassandra':
+    class {'::cassandra':
         seeds        => ['node_1', 'node_2', 'node_3'],
         seed_address => 'node_2'
     }
 
 ... On node3:
 
-    class {'midonet::cassandra':
+    class {'::cassandra':
         seeds        => ['node_1', 'node_2', 'node_3'],
         seed_address => 'node_3'
     }
@@ -95,16 +94,16 @@ seed_address of each node:
 NOTE: node_X can be either hostnames or ip addresses
 You can alternatively use the Hiera's yaml style:
 
-    midonet::cassandra::seeds:
+    ::cassandra::seeds:
         - node_1
         - node_2
         - node_3
-    midonet::cassandra::seed_address: 'node_1'
+    ::cassandra::seed_address: 'node_1'
 
 ## Development
 
 We happily will accept patches and new ideas to improve this module. Clone
-MidoNet's puppet repo in:
+Cassandra's puppet repo in:
 
     git clone http://github.com/midonet/puppet-cassandra
 

@@ -1,5 +1,5 @@
-# == Class: midonet::cassandra::install
-# Check out the midonet::cassandra class for a full understanding of
+# == Class: ::cassandra::install
+# Check out the ::cassandra class for a full understanding of
 # how to use the cassandra resource
 #
 # === Authors
