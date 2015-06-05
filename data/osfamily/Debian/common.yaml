@@ -1,0 +1,2 @@
+cassandra::run::conf_dir: '/etc/cassandra'
+cassandra::run::pid_dir: '/var/run/cassandra'
