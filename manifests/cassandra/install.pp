@@ -27,21 +27,21 @@ class cassandra::install {
   if ! defined(Class['java']) {
     class {'java':
       distribution => 'jre',
-      require      => Exec['update-repos']
+      require      => Exec['update-cassandra-repos']
     }
   }
 
   if $::osfamily == 'Debian' {
     package {'cassandra':
       ensure  => '2.0.10',
-      require => [Class['java'], Exec['update-repos']],
+      require => [Class['java'], Exec['update-cassandra-repos']],
       before  => Package['dsc20']
     }
   }
 
   package {'dsc20':
     ensure  => '2.0.10-1',
-    require => [Class['java'], Exec['update-repos']]
+    require => [Class['java'], Exec['update-cassandra-repos']]
   }
 
   file {'/usr/share/cassandra/apache-cassandra.jar':

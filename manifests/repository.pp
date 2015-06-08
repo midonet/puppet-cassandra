@@ -45,13 +45,13 @@ class cassandra::repository {
         }
 
         # Dummy exec to wrap apt_update
-        exec {'update-repos':
+        exec {'update-cassandra-repos':
           command => '/bin/true',
           require => Exec['apt_update']
         }
 
         Apt::Source<| |> -> Apt::Key<| |>
-        Exec<| command == 'update-repos' |> -> Apt::Source<| |>
+        Exec<| command == 'update-cassandra-repos' |> -> Apt::Source<| |>
 
       }
       else {
@@ -69,12 +69,12 @@ class cassandra::repository {
           gpgkey   => 'https://rpm.datastax.com/rpm/repo_key',
           timeout  => 60
         }
-        
-        exec {'update-repos':
+
+        exec {'update-cassandra-repos':
           command => '/usr/bin/yum clean all && /usr/bin/yum makecache',
         }
 
-        Exec<| command == 'update-repos' |> -> Yumrepo<| |>
+        Exec<| command == 'update-cassandra-repos' |> -> Yumrepo<| |>
       }
       else {
         fail('Operating System not supported by this module')
