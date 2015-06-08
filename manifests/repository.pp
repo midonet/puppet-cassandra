@@ -50,8 +50,8 @@ class cassandra::repository {
           require => Exec['apt_update']
         }
 
-        Apt::Source<| |> -> Apt::Key<| |>
-        Exec<| command == 'update-cassandra-repos' |> -> Apt::Source<| |>
+        Apt::Key<| |> -> Apt::Source<| |>
+        Apt::Source<| |> -> Exec<| command == 'update-cassandra-repos' |>
 
       }
       else {
@@ -74,7 +74,7 @@ class cassandra::repository {
           command => '/usr/bin/yum clean all && /usr/bin/yum makecache',
         }
 
-        Exec<| command == 'update-cassandra-repos' |> -> Yumrepo<| |>
+        Yumrepo<| |> -> Exec<| command == 'update-cassandra-repos' |>
       }
       else {
         fail('Operating System not supported by this module')
