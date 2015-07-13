@@ -30,7 +30,8 @@ class cassandra::run(
   $storage_port,
   $ssl_storage_port,
   $client_port,
-  $client_port_thrift)
+  $client_port_thrift,
+  $service_path)
 {
 
   require cassandra::install
@@ -42,7 +43,7 @@ class cassandra::run(
   }
 
   exec {'cassandra_stop':
-    command => '/usr/sbin/service cassandra stop',
+    command => "${service_path}/service cassandra stop",
     require => File[$pid_dir]
   }
 
