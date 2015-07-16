@@ -1,6 +1,6 @@
 {
   "name": "midonet-cassandra",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "MidoNet",
   "summary": "Configure and install Datastax Cassandra distribution",
   "license": "Apache-2.0",
@@ -16,7 +16,7 @@
   "operatingsystem_support": [
     {
     "operatingsystem": "RedHat",
-    "operatingsystemrelease": [ "7.0" ]
+    "operatingsystemrelease": [ "7.0", "6.6", "6.5" ]
     },
     {
     "operatingsystem": "Ubuntu",

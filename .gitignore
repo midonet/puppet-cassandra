@@ -5,6 +5,7 @@
 /InstalledFiles
 **/pkg/
 /spec/reports/
+/spec/fixtures/modules/*
 /test/tmp/
 /test/version_tmp/
 /tmp/
@@ -53,3 +54,6 @@ Puppetfile.lock
 # Ignore vagrant-generated files
 .vagrant
 modules/
+
+# Beaker logs
+log/

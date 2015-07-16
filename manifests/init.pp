@@ -109,20 +109,26 @@ class cassandra (
   $storage_port = '7000',
   $ssl_storage_port = '7001',
   $client_port = '9042',
-  $client_port_thrift = '9160')
+  $client_port_thrift = '9160',
+  $conf_dir = nil,
+  $pid_dir = nil,
+  $service_path = nil)
 {
 
-  class {'cassandra::repository':} ->
+  class {'::cassandra::repository':} ->
 
-  class {'cassandra::install': } ->
+  class {'::cassandra::install': } ->
 
-  class {'cassandra::run':
+  class {'::cassandra::run':
     seeds              => $seeds,
     seed_address       => $seed_address,
     storage_port       => $storage_port,
     ssl_storage_port   => $ssl_storage_port,
     client_port        => $client_port,
-    client_port_thrift => $client_port_thrift
+    client_port_thrift => $client_port_thrift,
+    conf_dir           => $conf_dir,
+    pid_dir            => $pid_dir,
+    service_path       => $service_path
   }
 
 }
