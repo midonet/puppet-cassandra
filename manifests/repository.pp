@@ -59,7 +59,8 @@ class cassandra::repository {
       }
     }
     'RedHat': {
-      if ($::operatingsystemmajrelease == 7) {
+      if ($::operatingsystemmajrelease == 7 or
+          $::operatingsystemmajrelease == 6) {
 
         yumrepo { 'datastax':
           baseurl  => 'http://rpm.datastax.com/community',
