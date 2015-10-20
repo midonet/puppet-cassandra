@@ -34,8 +34,6 @@ class cassandra::run(
   $service_path)
 {
 
-  require cassandra::install
-
   file {$pid_dir:
     ensure => directory,
     owner  => 'cassandra',
