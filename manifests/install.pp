@@ -24,8 +24,6 @@
 #
 class cassandra::install {
 
-  require cassandra::repository
-
   if ! defined(Class['java']) {
     class {'java':
       distribution => 'jre',
