@@ -1,6 +1,6 @@
 {
   "name": "midonet-cassandra",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "author": "MidoNet",
   "summary": "Configure and install Datastax Cassandra distribution",
   "license": "Apache-2.0",
